@@ -1,0 +1,180 @@
+@import "tailwindcss";
+
+/**
+ * Tailwind v4 theme tokens.
+ * The legacy shorthand names (ink/gold/...) remain so existing
+ * components keep working; the canonical palette names from
+ * tailwind.config.ts are mirrored here as CSS @theme tokens so the
+ * utilities are guaranteed to exist even if the JS config is not
+ * auto-detected by the v4 postcss pipeline.
+ */
+@theme {
+  /* --- Canonical palette — exact camelCase names from spec.
+       Tailwind v4 generates a utility for every --color-* token using
+       the token's own name, so --color-richBlack -> bg-richBlack. --- */
+  --color-richBlack: #0A0A0A; /* Main Background */
+  --color-charcoal: #141414; /* Cards / Surfaces */
+  --color-graphite: #2A2A2A; /* Borders / Dividers */
+  --color-sandGold: #C9A85C; /* Primary Accent */
+  --color-lightGold: #E0C27E; /* Hover */
+  --color-deepGold: #9C7F3C;
+  --color-germanRed: #B5130F; /* Secondary Accent */
+  --color-signalRed: #E63227;
+  --color-warmGrey: #A8A29A; /* Muted Text */
+
+  /* --- Legacy shorthand tokens (kept for existing components) --- */
+  --color-ink: #0a0a0a; /* Rich Black — page background */
+  --color-gold: #c9a85c; /* Primary accent — Sand Gold */
+  --color-gold-light: #e0c27e; /* Gold hover */
+  --color-gold-dark: #9c7f3c; /* Deep Gold */
+  --color-muted: #a8a29a; /* Warm Grey text */
+  --color-offwhite: #f6f3ec; /* Light section background */
+
+  /* --- Font faces --- */
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Instrument Serif", ui-serif, Georgia, serif;
+  --font-serif: "Instrument Serif", ui-serif, Georgia, serif;
+}
+
+/* ... */
+
+html {
+  scroll-behavior: smooth;
+  background-color: #0a0a0a;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Hardware acceleration hint for Framer Motion transforms.
+   Only opacity/transform are animated — never width/height/top/left,
+   so the GPU composite stays cheap and 60fps is preserved on mobile. */
+.will-change-transform {
+  will-change: transform;
+}
+
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* Mobile touch optimization — remove the default blue tap highlight on iOS/Android */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Prevent horizontal scroll on mobile — no element should ever push the viewport wider */
+html,
+body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+/* Ensure tap-target elements meet the WCAG 44×44 minimum touch target.
+   Scoped to buttons and prominent action anchors only — inline text
+   links keep their compact size. */
+button,
+[role="button"],
+input[type="submit"],
+input[type="button"],
+a[aria-label*="WhatsApp"],
+a[aria-label*="Enquire"] {
+  min-height: 44px;
+  min-width: 44px;
+}
+
+/* Gold text gradient used in the hero headline */
+.text-gold-gradient {
+  background: linear-gradient(100deg, #e0c27e 0%, #c9a85c 42%, #9c7f3c 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Thin gold hairline divider */
+.hairline {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(201, 168, 92, 0.55),
+    transparent
+  );
+}
+
+/* Subtle industrial grid texture overlay */
+.grid-texture {
+  background-image: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0.035) 1px,
+      transparent 1px
+    ),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+  background-size: 72px 72px;
+}
+
+/* Custom scrollbar for the dark theme */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+::-webkit-scrollbar-thumb {
+  background: #2a2a2a;
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #9c7f3c;
+}
+
+::selection {
+  background: #c9a85c;
+  color: #0a0a0a;
+}
+
+/* Focus visibility for accessibility */
+:focus-visible {
+  outline: 2px solid #e0c27e;
+  outline-offset: 3px;
+}
+
+/* ------------------------------------------------------------------
+   GermanOil Project — Liquid Glass
+   Translucent, frosted panel with a gold hairline sheen.
+   Defined in @layer components exactly as specified for the
+   showcase build (works as a plain CSS class under Tailwind v4).
+------------------------------------------------------------------- */
+@layer components {
+  .liquid-glass {
+    background: rgba(255, 255, 255, 0.01);
+    background-blend-mode: luminosity;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border: none;
+    box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.1);
+    position: relative;
+    overflow: hidden;
+  }
+  .liquid-glass::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1.4px;
+    background: linear-gradient(
+      180deg,
+      rgba(201, 168, 92, 0.4) 0%,
+      rgba(255, 255, 255, 0) 40%,
+      rgba(255, 255, 255, 0) 60%,
+      rgba(201, 168, 92, 0.4) 100%
+    );
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+}
