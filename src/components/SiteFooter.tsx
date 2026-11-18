@@ -110,6 +110,28 @@ export default function SiteFooter() {
           <p>© {year} GermanOil Project. All rights reserved.</p>
           <p>Dubai, UAE · Dhaka, Bangladesh</p>
         </div>
+
+        {/* Agency credit */}
+        <div className="mt-4 text-center sm:hidden">
+          <a
+            href="https://www.instagram.com/matriotic.studios.llc/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-[11px] tracking-[0.14em] text-warmGrey uppercase transition-colors hover:text-sandGold"
+          >
+            Made by Matriotic Studios LLC
+          </a>
+        </div>
+        <div className="hidden sm:block text-center">
+          <a
+            href="https://www.instagram.com/matriotic.studios.llc/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-xs tracking-[0.14em] text-warmGrey uppercase transition-colors hover:text-sandGold"
+          >
+            Made by Matriotic Studios LLC
+          </a>
+        </div>
       </div>
     </footer>
   );
