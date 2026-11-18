@@ -4,6 +4,7 @@ import { MessageCircle } from "lucide-react";
 import { Inter, Instrument_Serif } from "next/font/google";
 import "./globals.css";
 import LenisScroll from "@/components/LenisScroll";
+import SiteHeader from "@/components/SiteHeader";
 
 /** Body copy — clean neutral grotesque. */
 const body = Inter({
@@ -107,6 +108,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         />
       </head>
       <body className="bg-rich-black font-sans text-white antialiased">
+        <SiteHeader />
         <LenisScroll>{children}</LenisScroll>
 
         {/* Floating WhatsApp contact button — global, all screens */}

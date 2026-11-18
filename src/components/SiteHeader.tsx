@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { Menu, X, MessageCircle } from "lucide-react";
 import Image from "next/image";
 
 const LINKS = [
@@ -61,15 +61,18 @@ export default function SiteHeader() {
           ))}
         </ul>
 
+        {/* Mobile toggle */}
         <a
-          href="mailto:info@germanoilproject.com"
-          aria-label="Enquire by email"
-          className="hidden rounded-sm border border-gold/50 px-5 py-2.5 text-[11px] font-semibold tracking-[0.2em] text-gold uppercase transition-all duration-300 hover:border-gold-light hover:bg-gold hover:text-ink lg:inline-block"
+          href="https://wa.me/971544478806"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Contact on WhatsApp"
+          className="bg-[#25D366] text-white p-2 rounded-full hover:scale-105 transition-transform lg:hidden"
         >
-          Enquire
+          <MessageCircle className="h-5 w-5" aria-hidden="true" />
         </a>
 
-        {/* Mobile toggle */}
+        {/* Mobile menu button */}
         <button
           type="button"
           onClick={() => setOpen((v) => !v)}
