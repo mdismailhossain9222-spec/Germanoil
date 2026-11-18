@@ -89,7 +89,7 @@ export default function SiteFooter() {
                 <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-gold-dark" aria-hidden="true" />
                 <span>
                   <span className="block text-white">Bangladesh — Distribution</span>
-                  Tejgaon I/A, Dhaka 1208
+                  Mirpur, Dhaka
                 </span>
               </li>
               <li className="flex items-center gap-3">

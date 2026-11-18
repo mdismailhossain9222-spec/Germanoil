@@ -15,8 +15,8 @@ const SEGMENTS = [
 const CORRIDOR = [
   { step: "01", place: "Dubai, UAE", detail: "Blending & quality assurance" },
   { step: "02", place: "Jebel Ali Port", detail: "Containerised export" },
-  { step: "03", place: "Chattogram", detail: "Import & bonded warehousing" },
-  { step: "04", place: "Nationwide BD", detail: "Distributor & retail network" },
+  { step: "03", place: "Narayanganj", detail: "Import & bonded warehousing" },
+  { step: "04", place: "Mirpur", detail: "Distributor & retail network" },
 ];
 
 /** Distribution corridor + served segments, with parallax backdrop. */

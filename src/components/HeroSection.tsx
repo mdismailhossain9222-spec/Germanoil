@@ -3,7 +3,7 @@
 import { useEffect, useRef } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { ShieldCheck, ThermometerSun, MapPin, Phone } from "lucide-react";
+import { ShieldCheck, ThermometerSun, MapPin, Mail, MessageCircle } from "lucide-react";
 
 const NAV_LINKS = [
   { href: "#story", label: "Our Story" },
@@ -150,7 +150,7 @@ export default function HeroSection() {
             aria-label="Contact on WhatsApp"
             className="liquid-glass rounded-full px-6 py-2 text-sandGold text-sm font-medium hover:bg-white/5 transition-colors flex items-center gap-2"
           >
-            <Phone className="h-4 w-4" aria-hidden="true" />
+            <Mail className="h-4 w-4" aria-hidden="true" />
             +971 54 447 8806
           </a>
         </div>
@@ -197,7 +197,7 @@ export default function HeroSection() {
                 href="mailto:samiraccorporation3@gmail.com"
                 className="flex items-center justify-center gap-2"
               >
-                <Phone className="h-4 w-4" aria-hidden="true" />
+                <Mail className="h-4 w-4" aria-hidden="true" />
                 samiraccorporation3@gmail.com
               </a>
             </div>

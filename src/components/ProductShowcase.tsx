@@ -67,7 +67,7 @@ export default function ProductShowcase() {
   );
 
   return (
-    <section className="py-24 bg-richBlack max-w-7xl mx-auto px-6">
+    <section id="products" className="py-24 bg-richBlack max-w-7xl mx-auto px-6">
       <div className="text-center mb-4">
         <span className="text-[11px] font-semibold tracking-[0.3em] text-sandGold uppercase">
           OUR RANGE
