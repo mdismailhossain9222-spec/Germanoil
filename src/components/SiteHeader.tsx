@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, MessageCircle } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import Image from "next/image";
 
 const LINKS = [
@@ -60,17 +60,6 @@ export default function SiteHeader() {
             </li>
           ))}
         </ul>
-
-        {/* Mobile toggle */}
-        <a
-          href="https://wa.me/971544478806"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Contact on WhatsApp"
-          className="bg-[#25D366] text-white p-2 rounded-full hover:scale-105 transition-transform lg:hidden"
-        >
-          <MessageCircle className="h-5 w-5" aria-hidden="true" />
-        </a>
 
         {/* Mobile menu button */}
         <button
