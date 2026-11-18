@@ -8,6 +8,8 @@ const NAV = [
   { href: "#reach", label: "Distribution" },
 ];
 
+const WHATSAPP_URL = "https://wa.me/971544478806";
+
 /** Minimal, clean footer with dual-location contact placeholders. */
 export default function SiteFooter() {
   const year = new Date().getFullYear();
@@ -28,7 +30,7 @@ export default function SiteFooter() {
             <div className="flex items-center gap-3">
               <Image
                 src="/images/logo.png"
-                alt="GermanOil"
+                alt="Germanoil BD logo"
                 width={40}
                 height={40}
                 className="h-8 w-auto object-contain"
@@ -43,11 +45,11 @@ export default function SiteFooter() {
               a product showcase — no online sales are conducted here.
             </p>
             <a
-              href="mailto:info@germanoilproject.com"
+              href="mailto:samiraccorporation3@gmail.com"
               className="mt-6 inline-flex items-center gap-2 text-sm text-gold transition-colors hover:text-gold-light"
             >
               <Mail className="h-4 w-4" aria-hidden="true" />
-              info@germanoilproject.com
+              samiraccorporation3@gmail.com
             </a>
           </div>
 
@@ -92,7 +94,11 @@ export default function SiteFooter() {
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="h-4 w-4 shrink-0 text-gold-dark" aria-hidden="true" />
-                +971 4 000 0000
+                <span>+971 50 796 4529</span>
+              </li>
+              <li className="flex items-center gap-3">
+                <Phone className="h-4 w-4 shrink-0 text-gold-dark" aria-hidden="true" />
+                <span>+880 1913-896322</span>
               </li>
             </ul>
           </div>

@@ -22,17 +22,15 @@ const display = Instrument_Serif({
 });
 
 export const metadata: Metadata = {
-  title: "GermanOil Project — Premium Automotive & Industrial Lubricants",
+  title: "Germanoil BD | Premium Automotive & Industrial Lubricants in Bangladesh",
   description:
-    "Precision engineered in the UAE, powering Bangladesh. GermanOil Project manufactures and distributes premium automotive and industrial lubricants for cars, motorcycles and industry.",
+    "Established in 2020, Germanoil BD is the official distributor of premium automotive and industrial lubricants in Bangladesh. Manufactured in Dubai, trusted nationwide.",
   keywords: [
-    "GermanOil",
-    "lubricants",
-    "engine oil",
-    "hydraulic oil",
-    "Dubai",
-    "UAE",
-    "Bangladesh",
+    "germanoil bd",
+    "germanoil bangladesh",
+    "industrial oil bd",
+    "automotive lubricants dhaka",
+    "hydraulic oil bangladesh",
   ],
   icons: {
     icon: "/images/logo.png",
@@ -43,15 +41,77 @@ export const viewport: Viewport = {
   themeColor: "#0A0A0A",
 };
 
+// JSON-LD structured data for SEO
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "name": "Germanoil BD",
+      "url": "https://germanoil.bd",
+      "logo": "https://germanoil.bd/images/logo.png",
+      "sameAs": [
+        "https://wa.me/971544478806",
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+8801913896322",
+        "contactType": "customer service",
+        "availableLanguage": ["English", "Bengali"],
+      },
+      "foundingDate": "2020",
+    },
+    {
+      "@type": "LocalBusiness",
+      "name": "Germanoil BD",
+      "description":
+        "Established in 2020. Official distributor of premium automotive and industrial lubricants in Bangladesh. Manufactured in Dubai, UAE.",
+      "url": "https://germanoil.bd",
+      "telephone": "+8801913896322",
+      "email": "samiraccorporation3@gmail.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Dhaka",
+        "addressCountry": "BD",
+        "addressRegion": "Dhaka Division",
+        "streetAddress": "Tejgaon I/A, Dhaka 1208",
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "23.7465",
+        "longitude": "90.3763",
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+          "opens": "09:00",
+          "closes": "18:00",
+        },
+      ],
+      "priceRange": "$$",
+      "currenciesAccepted": "BDT",
+      "paymentAccepted": "Cash, Bank Transfer, Card",
+      "foundingDate": "2020",
+    },
+  ],
+};
+
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" className={`${body.variable} ${display.variable}`}>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body className="bg-rich-black font-sans text-white antialiased">
         <LenisScroll>{children}</LenisScroll>
 
         {/* Floating WhatsApp contact button — global, all screens */}
         <a
-          href="https://wa.me/8801792544444?text=Hi,%20I%20am%20interested%20in%20GermanOil%20products."
+          href="https://wa.me/971544478806"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Contact GermanOil on WhatsApp"

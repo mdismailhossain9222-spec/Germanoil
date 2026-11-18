@@ -66,7 +66,7 @@ export default function BrandStory() {
           <Reveal delay={0.1}>
             <div className="mt-8 space-y-5 text-[15px] leading-relaxed text-muted">
               <p>
-                Our blending operation in the United Arab Emirates combines
+                Established in 2020, our blending operation in the United Arab Emirates combines
                 high-grade base oils with carefully balanced additive packages.
                 Every batch is sampled, tested for viscosity, oxidation
                 stability and wear protection, and released only once it meets

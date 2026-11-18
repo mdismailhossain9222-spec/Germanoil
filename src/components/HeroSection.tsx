@@ -3,7 +3,7 @@
 import { useEffect, useRef } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { ArrowRight, ShieldCheck, ThermometerSun, MapPin } from "lucide-react";
+import { ShieldCheck, ThermometerSun, MapPin, Phone } from "lucide-react";
 
 const NAV_LINKS = [
   { href: "#story", label: "Our Story" },
@@ -119,10 +119,10 @@ export default function HeroSection() {
 
       <nav className="relative z-20 px-6 py-6">
         <div className="liquid-glass rounded-full max-w-6xl mx-auto px-6 py-3 flex justify-between items-center">
-          <a href="#top" className="flex items-center" aria-label="GermanOil home">
+          <a href="#top" className="flex items-center" aria-label="Germanoil BD home">
             <Image
               src="/images/logo.png"
-              alt="GermanOil"
+              alt="Germanoil BD logo"
               width={40}
               height={40}
               className="h-7 w-auto object-contain"
@@ -144,11 +144,14 @@ export default function HeroSection() {
           </ul>
 
           <a
-            href="mailto:info@germanoilproject.com"
-            aria-label="Enquire by email"
-            className="liquid-glass rounded-full px-6 py-2 text-sandGold text-sm font-medium hover:bg-white/5 transition-colors"
+            href="https://wa.me/971544478806"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Contact on WhatsApp"
+            className="liquid-glass rounded-full px-6 py-2 text-sandGold text-sm font-medium hover:bg-white/5 transition-colors flex items-center gap-2"
           >
-            Enquire
+            <Phone className="h-4 w-4" aria-hidden="true" />
+            +971 54 447 8806
           </a>
         </div>
       </nav>
@@ -189,29 +192,20 @@ export default function HeroSection() {
             variants={fadeUp}
             className="will-change-transform max-w-xl w-full flex flex-col sm:flex-row gap-4 mx-auto"
           >
-            <div className="liquid-glass rounded-full pl-6 pr-2 py-2 flex items-center gap-3 w-full">
-              <input
-                type="email"
-                placeholder="Enter your email"
-                className="bg-transparent text-white placeholder:text-white/50 text-sm flex-1 outline-none min-w-0"
-                aria-label="Email address"
-              />
-              <button
-                type="submit"
-                aria-label="Submit email"
-                className="bg-sandGold rounded-full p-3 text-richBlack shrink-0 hover:brightness-110 transition-all"
+            <div className="liquid-glass rounded-full px-8 py-3 text-white text-sm font-medium hover:bg-white/5 transition-colors whitespace-nowrap w-full text-center">
+              <a
+                href="mailto:samiraccorporation3@gmail.com"
+                className="flex items-center justify-center gap-2"
               >
-                <ArrowRight className="h-4 w-4" aria-hidden="true" />
-              </button>
+                <Phone className="h-4 w-4" aria-hidden="true" />
+                samiraccorporation3@gmail.com
+              </a>
             </div>
-            <button className="liquid-glass rounded-full px-8 py-3 text-white text-sm font-medium hover:bg-white/5 transition-colors whitespace-nowrap">
-              Manifesto
-            </button>
           </motion.div>
 
           <motion.div
             variants={fadeUp}
-            className="will-change-transform flex flex-wrap justify-center gap-6 mt-12 text-xs text-warmGrey tracking-widest uppercase"
+            className="will-change-transform flex flex-wrap justify-center gap-6 mt-8 text-xs text-warmGrey tracking-widest uppercase"
           >
             <span className="flex items-center gap-2">
               <ShieldCheck className="h-4 w-4" aria-hidden="true" />

@@ -2,8 +2,8 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import { AnimatePresence, motion } from "framer-motion";
-import { MessageCircle, X } from "lucide-react";
+import { AnimatePresence, motion, PanInfo } from "framer-motion";
+import { MessageCircle, X, ChevronLeft, ChevronRight } from "lucide-react";
 
 interface ShowcaseProduct {
   title: string;
@@ -19,21 +19,40 @@ interface ProductModalProps {
   onClose: () => void;
 }
 
+const WHATSAPP_URL = "https://wa.me/971544478806";
+
 export default function ProductModal({
   product,
   isOpen,
   onClose,
 }: ProductModalProps) {
-  const [activeImage, setActiveImage] = useState<string>(
-    product?.gallery[0] ?? product?.coverImage ?? ""
-  );
+  const [activeIndex, setActiveIndex] = useState(0);
 
   // Reset the active image whenever a different product opens.
   useEffect(() => {
-    setActiveImage(product?.gallery[0] ?? product?.coverImage ?? "");
+    setActiveIndex(0);
   }, [product]);
 
   if (!product) return null;
+
+  const activeImage = product.gallery[activeIndex];
+
+  const handleDragEnd = (_event: PointerEvent | MouseEvent | TouchEvent, info: PanInfo) => {
+    const threshold = 80;
+    if (info.offset.x < -threshold && activeIndex < product.gallery.length - 1) {
+      setActiveIndex((i) => i + 1);
+    } else if (info.offset.x > threshold && activeIndex > 0) {
+      setActiveIndex((i) => i - 1);
+    }
+  };
+
+  const nextImage = () => {
+    setActiveIndex((prev) => (prev + 1) % product.gallery.length);
+  };
+
+  const prevImage = () => {
+    setActiveIndex((prev) => (prev - 1 + product.gallery.length) % product.gallery.length);
+  };
 
   return (
     <AnimatePresence>
@@ -69,33 +88,59 @@ export default function ProductModal({
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-4">
               {/* Left: Gallery */}
               <div className="flex flex-col gap-4">
-                <div className="relative h-[300px] md:h-[400px] w-full bg-richBlack rounded-xl p-4 flex items-center justify-center">
-                  <Image
-                    src={activeImage}
-                    alt={product.title}
-                    fill
-                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 50vw"
-                    className="object-contain"
-                  />
+                <div className="relative h-[300px] md:h-[400px] w-full rounded-xl flex items-center justify-center">
+                  <motion.div
+                    drag="x"
+                    dragConstraints={{ left: 0, right: 0 }}
+                    dragElastic={0.2}
+                    onDragEnd={handleDragEnd}
+                    className="w-full h-full flex items-center justify-center cursor-grab active:cursor-grabbing"
+                  >
+                    <Image
+                      src={activeImage}
+                      alt={`Germanoil BD ${product.title}`}
+                      fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 50vw"
+                      className="object-contain"
+                    />
+
+                    {/* Navigation Arrows */}
+                    <button
+                      type="button"
+                      onClick={prevImage}
+                      aria-label="Previous image"
+                      className="absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-black/50 backdrop-blur-md text-white p-2 rounded-full hover:bg-sandGold hover:text-black transition-all cursor-pointer"
+                    >
+                      <ChevronLeft className="h-6 w-6" aria-hidden="true" />
+                    </button>
+                    <button
+                      type="button"
+                      onClick={nextImage}
+                      aria-label="Next image"
+                      className="absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-black/50 backdrop-blur-md text-white p-2 rounded-full hover:bg-sandGold hover:text-black transition-all cursor-pointer"
+                    >
+                      <ChevronRight className="h-6 w-6" aria-hidden="true" />
+                    </button>
+                  </motion.div>
                 </div>
 
                 {/* Thumbnails */}
-                <div className="flex flex-row flex-wrap gap-3">
-                  {product.gallery.map((img) => (
+                <div className="flex flex-row flex-wrap gap-3 justify-center">
+                  {product.gallery.map((img, index) => (
                     <button
                       key={img}
                       type="button"
-                      onClick={() => setActiveImage(img)}
-                      aria-label={`Select ${img}`}
-                      className={`relative h-16 w-16 shrink-0 rounded-lg border bg-richBlack p-1 transition-all duration-300 ${
-                        activeImage === img
+                      onClick={() => setActiveIndex(index)}
+                      aria-label={`Select image ${index + 1}`}
+                      className={`relative h-16 w-16 shrink-0 rounded-lg border bg-charcoal p-1 transition-all duration-300 ${
+                        activeIndex === index
                           ? "border-sandGold shadow-[0_0_12px_rgba(201,168,92,0.4)]"
                           : "border-graphite opacity-70 hover:opacity-100"
                       }`}
                     >
                       <Image
                         src={img}
-                        alt={img}
+                        alt={`Germanoil BD ${product.title} image ${index + 1}`}
                         fill
                         sizes="64px"
                         className="object-contain"
@@ -118,9 +163,7 @@ export default function ProductModal({
                 </p>
 
                 <a
-                  href={`https://wa.me/8801792544444?text=Hi,%20I%20want%20to%20know%20more%20about%20${encodeURIComponent(
-                    product.title
-                  )}`}
+                  href={WHATSAPP_URL}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="mt-8 w-full bg-[#25D366] text-white py-3 rounded-xl font-semibold flex items-center justify-center gap-2 hover:bg-[#20b858] transition-colors"

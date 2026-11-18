@@ -18,43 +18,45 @@ interface ShowcaseProduct {
   gallery: string[];
 }
 
+const WHATSAPP_URL = "https://wa.me/971544478806";
+
 const PRODUCTS: ShowcaseProduct[] = [
   {
     title: "Hydraulic Oil AW 150/100",
     type: "Industrial Use",
     desc: "High-performance anti-wear hydraulic oil for demanding industrial applications.",
-    coverImage: "/images/industrial-oil-1.png",
-    gallery: ["/images/industrial-oil-1.png", "/images/industrial-oil-2.png"],
+    coverImage: "/images/webp/industrial-oil-1.webp",
+    gallery: ["/images/webp/industrial-oil-1.webp", "/images/webp/industrial-oil-2.webp"],
   },
   {
     title: "Premium 4T SAE 20W50",
     type: "Motorcycle Engine Oil",
     desc: "Semi-synthetic 4-stroke engine oil ensuring smooth clutch operation and engine protection.",
-    coverImage: "/images/motorcycle-engine-oil-1.png",
+    coverImage: "/images/webp/motorcycle-engine-oil-1.webp",
     gallery: [
-      "/images/motorcycle-engine-oil-1.png",
-      "/images/motorcycle-engine-oil-2.png",
-      "/images/motorcycle-engine-oil-3.png",
-      "/images/motorcycle-engine-oil-4.png",
+      "/images/webp/motorcycle-engine-oil-1.webp",
+      "/images/webp/motorcycle-engine-oil-2.webp",
+      "/images/webp/motorcycle-engine-oil-3.webp",
+      "/images/webp/motorcycle-engine-oil-4.webp",
     ],
   },
   {
     title: "Premium 6000 SAE 20W50",
     type: "Petrol Engine Oil",
     desc: "Fully synthetic API SM engine oil for modern petrol engines, delivering maximum power.",
-    coverImage: "/images/petrol-engine-oil-1.png",
-    gallery: ["/images/petrol-engine-oil-1.png", "/images/petrol-engine-oil-2.png"],
+    coverImage: "/images/webp/petrol-engine-oil-1.webp",
+    gallery: ["/images/webp/petrol-engine-oil-1.webp", "/images/webp/petrol-engine-oil-2.webp"],
   },
   {
     title: "Gear Oil EP 90",
     type: "Transmission Fluid",
     desc: "Heavy-duty gear oil formulated for extreme pressure and smooth gear shifting.",
-    coverImage: "/images/gear-oil-1.png",
+    coverImage: "/images/webp/gear-oil-1.webp",
     gallery: [
-      "/images/gear-oil-1.png",
-      "/images/gear-oil-2.png",
-      "/images/gear-oil-3.png",
-      "/images/gear-oil-4.png",
+      "/images/webp/gear-oil-1.webp",
+      "/images/webp/gear-oil-2.webp",
+      "/images/webp/gear-oil-3.webp",
+      "/images/webp/gear-oil-4.webp",
     ],
   },
 ];
@@ -86,7 +88,7 @@ export default function ProductShowcase() {
             <div className="relative w-full h-64 mb-6">
               <Image
                 src={product.coverImage}
-                alt={product.title}
+                alt={`Germanoil BD ${product.title}`}
                 fill
                 sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
                 className="object-contain transition-transform duration-500 ease-out group-hover:scale-105"

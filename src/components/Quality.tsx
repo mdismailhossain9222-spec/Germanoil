@@ -27,7 +27,7 @@ const STANDARDS = [
 ];
 
 const STATS = [
-  { value: "2015", label: "FOUNDED IN DUBAI" },
+  { value: "2020", label: "FOUNDED IN DUBAI" },
   { value: "64", label: "DISTRICTS REACHED IN BD" },
   { value: "100%", label: "BATCH TESTED" },
   { value: "3", label: "CORE FORMULATIONS" },
