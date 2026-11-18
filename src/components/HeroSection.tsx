@@ -5,13 +5,6 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { ShieldCheck, ThermometerSun, MapPin, Mail } from "lucide-react";
 
-const NAV_LINKS = [
-  { href: "#story", label: "Our Story" },
-  { href: "#products", label: "Products" },
-  { href: "#quality", label: "Quality" },
-  { href: "#reach", label: "Distribution" },
-];
-
 const container = {
   hidden: {},
   show: { transition: { staggerChildren: 0.1, delayChildren: 0.2 } },
@@ -116,34 +109,6 @@ export default function HeroSection() {
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 bg-gradient-to-b from-rich-black/40 via-rich-black/55 to-rich-black/85"
       />
-
-      <nav className="relative z-20 px-6 py-6">
-        <div className="liquid-glass rounded-full max-w-6xl mx-auto px-6 py-3 flex justify-between items-center">
-          <a href="#top" className="flex items-center" aria-label="Germanoil BD home">
-            <Image
-              src="/images/logo.png"
-              alt="Germanoil BD logo"
-              width={40}
-              height={40}
-              className="h-7 w-auto object-contain"
-              priority
-            />
-          </a>
-
-          <ul className="hidden md:flex items-center gap-8">
-            {NAV_LINKS.map((l) => (
-              <li key={l.href}>
-                <a
-                  href={l.href}
-                  className="text-white/80 hover:text-sandGold transition-colors text-sm font-medium"
-                >
-                  {l.label}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </nav>
 
       <div className="relative z-10 flex-1 flex flex-col items-center justify-center text-center px-6 pt-32 sm:pt-40 -translate-y-[10%]">
         <motion.div
