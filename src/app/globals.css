@@ -43,6 +43,31 @@ html {
   background-color: #0a0a0a;
 }
 
+/**
+ * Testimonial marquee — continuous horizontal scroll.
+ * 50% translate = exactly one copy of the list, so the duplicate copy
+ * lands where the first began. Runs at 40s, never pauses.
+ */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 40s linear infinite;
+}
+
+/* Half speed on very large screens so the loop never feels rushed. */
+@media (min-width: 1536px) {
+  .animate-marquee {
+    animation-duration: 60s;
+  }
+}
+
 body {
   -webkit-font-smoothing: antialiased;
 }

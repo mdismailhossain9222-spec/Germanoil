@@ -2,6 +2,7 @@ import dynamicImport from "next/dynamic";
 import HeroSection from "@/components/HeroSection";
 import ProductShowcase from "@/components/ProductShowcase";
 import Reach from "@/components/Reach";
+import Testimonials from "@/components/Testimonials";
 import SiteFooter from "@/components/SiteFooter";
 
 // Lazy-load below-the-fold sections so the initial HTML is light and fast,
@@ -25,6 +26,7 @@ export default function HomePage() {
         <ProductShowcase />
         <Quality />
         <Reach />
+        <Testimonials />
       </main>
       <SiteFooter />
     </>
